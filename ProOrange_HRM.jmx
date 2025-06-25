@@ -4847,7 +4847,7 @@ Match[1][1]=0396</stringProp>
             <boolProp name="CacheManager.controlledByThread">false</boolProp>
           </CacheManager>
           <hashTree/>
-          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="/web/index.php/api/v2/pim/employees/203/job-details-123">
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="/web/index.php/api/v2/pim/employees/203/job-details-123" enabled="false">
             <stringProp name="HTTPSampler.domain">opensource-demo.orangehrmlive.com</stringProp>
             <stringProp name="HTTPSampler.port">443</stringProp>
             <stringProp name="HTTPSampler.protocol">https</stringProp>
