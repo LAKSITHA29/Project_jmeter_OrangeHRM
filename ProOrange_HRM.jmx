@@ -19,20 +19,6 @@
       </elementProp>
     </TestPlan>
     <hashTree>
-      <AuthManager guiclass="AuthPanel" testclass="AuthManager" testname="HTTP Authorization Manager">
-        <collectionProp name="AuthManager.auth_list">
-          <elementProp name="" elementType="Authorization">
-            <stringProp name="Authorization.url">https://www.youtube.com/youtubei/v1/</stringProp>
-            <stringProp name="Authorization.username">${AUTH_LOGIN}</stringProp>
-            <stringProp name="Authorization.password">${AUTH_PASSWORD}</stringProp>
-            <stringProp name="Authorization.domain"></stringProp>
-            <stringProp name="Authorization.realm"></stringProp>
-            <stringProp name="Authorization.mechanism">KERBEROS</stringProp>
-          </elementProp>
-        </collectionProp>
-        <boolProp name="AuthManager.controlledByThreadGroup">false</boolProp>
-      </AuthManager>
-      <hashTree/>
       <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager">
         <collectionProp name="HeaderManager.headers"/>
       </HeaderManager>
@@ -49,7 +35,7 @@
         <boolProp name="CookieManager.controlledByThreadGroup">false</boolProp>
       </CookieManager>
       <hashTree/>
-      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="PIM">
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="PIM" enabled="false">
         <stringProp name="ThreadGroup.num_threads">${users}</stringProp>
         <stringProp name="ThreadGroup.ramp_time">${ramp}</stringProp>
         <boolProp name="ThreadGroup.same_user_on_next_iteration">true</boolProp>
@@ -355,7 +341,7 @@ Match[1][1]=e2dd4d148825e2c4d92b0519d.2J3Gtjd6_8ty4Ym_r7EehVa3epLY-mven49NC7k-DY
             </elementProp>
           </HTTPSamplerProxy>
           <hashTree>
-            <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+            <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager">
               <collectionProp name="HeaderManager.headers">
                 <elementProp name="Sec-Fetch-Mode" elementType="Header">
                   <stringProp name="Header.name">Sec-Fetch-Mode</stringProp>
@@ -435,7 +421,7 @@ Match[1][1]=e2dd4d148825e2c4d92b0519d.2J3Gtjd6_8ty4Ym_r7EehVa3epLY-mven49NC7k-DY
             </ResponseAssertion>
             <hashTree/>
           </hashTree>
-          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="/web/index.php/dashboard/index-13" enabled="true">
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="/web/index.php/dashboard/index-13">
             <stringProp name="HTTPSampler.domain">opensource-demo.orangehrmlive.com</stringProp>
             <stringProp name="HTTPSampler.port">443</stringProp>
             <stringProp name="HTTPSampler.protocol">https</stringProp>
@@ -449,7 +435,7 @@ Match[1][1]=e2dd4d148825e2c4d92b0519d.2J3Gtjd6_8ty4Ym_r7EehVa3epLY-mven49NC7k-DY
             </elementProp>
           </HTTPSamplerProxy>
           <hashTree>
-            <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+            <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager">
               <collectionProp name="HeaderManager.headers">
                 <elementProp name="Sec-Fetch-Mode" elementType="Header">
                   <stringProp name="Header.name">Sec-Fetch-Mode</stringProp>
@@ -931,6 +917,11 @@ log.info(&quot;End-of-thread pacing of 1 seconds complete.&quot;)
             <elementProp name="iteration" elementType="Argument">
               <stringProp name="Argument.name">iteration</stringProp>
               <stringProp name="Argument.value">1</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+            <elementProp name="final_entitlement" elementType="Argument">
+              <stringProp name="Argument.name">final_entitlement</stringProp>
+              <stringProp name="Argument.value">10.00</stringProp>
               <stringProp name="Argument.metadata">=</stringProp>
             </elementProp>
           </collectionProp>
@@ -1422,7 +1413,7 @@ Match[1][1]=e2dd4d148825e2c4d92b0519d.2J3Gtjd6_8ty4Ym_r7EehVa3epLY-mven49NC7k-DY
           <stringProp name="filename"></stringProp>
         </ResultCollector>
         <hashTree/>
-        <DebugSampler guiclass="TestBeanGUI" testclass="DebugSampler" testname="Debug Sampler" enabled="true">
+        <DebugSampler guiclass="TestBeanGUI" testclass="DebugSampler" testname="Debug Sampler">
           <boolProp name="displayJMeterProperties">false</boolProp>
           <boolProp name="displayJMeterVariables">true</boolProp>
           <boolProp name="displaySystemProperties">false</boolProp>
@@ -1439,7 +1430,7 @@ log.info(&quot;End-of-thread pacing of 1 seconds complete.&quot;)
 </stringProp>
         </JSR223Timer>
         <hashTree/>
-        <ResultCollector guiclass="StatVisualizer" testclass="ResultCollector" testname="Aggregate Report">
+        <ResultCollector guiclass="StatVisualizer" testclass="ResultCollector" testname="Aggregate Report" enabled="false">
           <boolProp name="ResultCollector.error_logging">false</boolProp>
           <objProp>
             <name>saveConfig</name>
@@ -1562,7 +1553,16 @@ log.info(&quot;End-of-thread pacing of 1 seconds complete.&quot;)
           </collectionProp>
         </Arguments>
         <hashTree/>
-        <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="Launch" enabled="false">
+        <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager">
+          <collectionProp name="HeaderManager.headers">
+            <elementProp name="" elementType="Header">
+              <stringProp name="Header.name">Authorization  </stringProp>
+              <stringProp name="Header.value">Bearer ${Login_token}</stringProp>
+            </elementProp>
+          </collectionProp>
+        </HeaderManager>
+        <hashTree/>
+        <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="Launch">
           <boolProp name="TransactionController.parent">true</boolProp>
           <boolProp name="TransactionController.includeTimers">false</boolProp>
         </TransactionController>
@@ -1790,7 +1790,7 @@ Match[1][1]=e2dd4d148825e2c4d92b0519d.2J3Gtjd6_8ty4Ym_r7EehVa3epLY-mven49NC7k-DY
             <hashTree/>
           </hashTree>
         </hashTree>
-        <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="Login" enabled="false">
+        <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="Login" enabled="true">
           <boolProp name="TransactionController.parent">true</boolProp>
           <boolProp name="TransactionController.includeTimers">false</boolProp>
         </TransactionController>
@@ -1989,7 +1989,7 @@ Match[1][1]=e2dd4d148825e2c4d92b0519d.2J3Gtjd6_8ty4Ym_r7EehVa3epLY-mven49NC7k-DY
             <hashTree/>
           </hashTree>
         </hashTree>
-        <OnceOnlyController guiclass="OnceOnlyControllerGui" testclass="OnceOnlyController" testname="Once Only Controller"/>
+        <OnceOnlyController guiclass="OnceOnlyControllerGui" testclass="OnceOnlyController" testname="Once Only Controller" enabled="false"/>
         <hashTree>
           <IncludeController guiclass="IncludeControllerGui" testclass="IncludeController" testname="Include Controller">
             <stringProp name="IncludeController.includepath">C:\Backup_jemeter\Project_OHRM\ohrmLogin.jmx</stringProp>
@@ -2000,7 +2000,7 @@ Match[1][1]=e2dd4d148825e2c4d92b0519d.2J3Gtjd6_8ty4Ym_r7EehVa3epLY-mven49NC7k-DY
           <stringProp name="IncludeController.includepath">C:\Backup_jemeter\Project_OHRM\Test PlanRecruitment.jmx</stringProp>
         </IncludeController>
         <hashTree/>
-        <IfController guiclass="IfControllerPanel" testclass="IfController" testname="If Controller">
+        <IfController guiclass="IfControllerPanel" testclass="IfController" testname="If Controller" enabled="false">
           <stringProp name="IfController.condition">${__groovy(vars.getIteration() == Integer.parseInt(vars.get(&quot;iteration&quot;)))}</stringProp>
           <boolProp name="IfController.evaluateAll">false</boolProp>
           <boolProp name="IfController.useExpression">true</boolProp>
@@ -2011,7 +2011,7 @@ Match[1][1]=e2dd4d148825e2c4d92b0519d.2J3Gtjd6_8ty4Ym_r7EehVa3epLY-mven49NC7k-DY
           </IncludeController>
           <hashTree/>
         </hashTree>
-        <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="Logout" enabled="false">
+        <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="Logout">
           <boolProp name="TransactionController.parent">true</boolProp>
           <boolProp name="TransactionController.includeTimers">false</boolProp>
         </TransactionController>
