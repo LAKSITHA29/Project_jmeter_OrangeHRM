@@ -314,9 +314,9 @@ log.info(&quot;End-of-thread pacing of 1 seconds complete.&quot;)
           <boolProp name="ignoreFirstLine">true</boolProp>
           <stringProp name="delimiter">,</stringProp>
           <boolProp name="quotedData">false</boolProp>
-          <boolProp name="recycle">true</boolProp>
-          <boolProp name="stopThread">false</boolProp>
-          <stringProp name="shareMode">shareMode.group</stringProp>
+          <boolProp name="recycle">false</boolProp>
+          <boolProp name="stopThread">true</boolProp>
+          <stringProp name="shareMode">shareMode.all</stringProp>
         </CSVDataSet>
         <hashTree/>
         <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="User Defined Variables">
